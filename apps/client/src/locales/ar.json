@@ -1,0 +1,236 @@
+{
+  "app": {
+    "title": "العميل",
+    "subtitle": "بوابة عميل مخطط الفعاليات"
+  },
+  "language": {
+    "label": "اللغة",
+    "en": "English",
+    "es": "Español",
+    "ar": "العربية"
+  },
+  "auth": {
+    "loginTitle": "تسجيل دخول العميل",
+    "registerTitle": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "fullName": "الاسم الكامل",
+    "phone": "رقم الهاتف",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "loading": "جارٍ التحميل...",
+    "invalidLogin": "بيانات الدخول غير صحيحة",
+    "register": "إنشاء حساب",
+    "noAccount": "لا تملك حسابًا؟",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "submitRegister": "إرسال التسجيل",
+    "registerFailed": "فشل التسجيل",
+    "passwordMismatch": "كلمتا المرور غير متطابقتين",
+    "registerSuccess": "تم إرسال طلب التسجيل. يمكنك تسجيل الدخول بعد الموافقة على حسابك."
+  },
+  "layout": {
+    "portalSubtitle": "بوابة العميل",
+    "dashboard": "لوحة التحكم",
+    "bookings": "الحجوزات",
+    "messages": "الرسائل",
+    "account": "الحساب",
+    "overview": "نظرة عامة"
+  },
+  "home": {
+    "welcome": "مرحبًا، {{name}}",
+    "description": "ستتوسع لوحتك هنا مع إضافة المزيد من الميزات.",
+    "fallbackName": "ضيفنا"
+  },
+  "manageMessages": {
+    "title": "الرسائل",
+    "subtitle": "استعرض ورد على محادثات عملائك",
+    "conversations": "المحادثات",
+    "loading": "جاري تحميل الرسائل...",
+    "loadError": "تعذر تحميل الرسائل.",
+    "sessionLoading": "جلسة قيد التحميل. حاول مرة أخرى.",
+    "emptyThreads": "لا توجد محادثات بعد.",
+    "selectThread": "اختر محادثة للبدء.",
+    "noMessages": "لا توجد رسائل بعد.",
+    "typePlaceholder": "اكتب رسالتك...",
+    "send": "إرسال",
+    "unknownCustomer": "عميل غير معروف"
+  },
+  "manageVenues": {
+    "title": "إدارة القاعات",
+    "subtitle": "أنشئ وأدر قوائم القاعات الخاصة بك",
+    "addNewVenue": "إضافة قاعة جديدة",
+    "editVenue": "تعديل القاعة",
+    "editDescription": "حدّث تفاصيل القاعة أدناه.",
+    "createDescription": "أضف التفاصيل التي يحتاجها العملاء لفهم المكان.",
+    "sessionLoading": "ما زالت جلسة العميل قيد التحميل. حاول مرة أخرى بعد قليل.",
+    "loading": "جارٍ تحميل القاعات...",
+    "loadError": "تعذر تحميل القاعات. تحقق من أن الـ API يعمل وأن المسار متاح.",
+    "emptyTitle": "لا توجد قاعات بعد",
+    "emptyDescription": "أضف أول قاعة للبدء في استقبال الحجوزات.",
+    "confirmDelete": "هل تريد حذف {{title}}؟",
+    "imageUnavailable": "الصورة غير متاحة",
+    "notAvailable": "غير متاح",
+
+    "bookings": "الحجوزات",
+    "edit": "تعديل",
+    "deleteVenue": "حذف {{title}}",
+    "venuePreview": "معاينة القاعة",
+    "dropImage": "اسحب صورة هنا أو اختر ملفًا",
+    "imageUploadHint": "الـ API الحالي يقبل روابط الصور، لذلك تُستخدم الملفات المسحوبة كمعاينة محلية.",
+    "cancel": "إلغاء",
+    "saving": "جارٍ الحفظ...",
+    "creating": "جارٍ الإنشاء...",
+    "saveVenue": "حفظ القاعة",
+    "createVenue": "إنشاء القاعة",
+    "status": {
+      "active": "نشطة",
+      "inactive": "غير نشطة"
+    },
+    "fields": {
+      "venueName": "اسم القاعة",
+      "location": "الموقع",
+      "capacity": "السعة",
+      "price": "السعر",
+      "pricePerDay": "السعر في اليوم",
+      "description": "الوصف",
+      "imageUpload": "رفع صورة",
+      "imageUrl": "رابط الصورة"
+    },
+    "placeholders": {
+      "venueName": "القاعة الكبرى",
+      "location": "وسط مانهاتن، نيويورك",
+      "capacity": "500",
+      "price": "5000",
+      "description": "صف المكان والمرافق ونوع الفعاليات المناسبة.",
+      "imageUrl": "https://example.com/venue.jpg"
+    },
+    "validation": {
+      "titleRequired": "اسم القاعة مطلوب",
+      "locationRequired": "الموقع مطلوب",
+      "capacityRequired": "السعة مطلوبة",
+      "capacityPositive": "يجب أن تكون السعة رقمًا صحيحًا موجبًا",
+      "priceRequired": "السعر مطلوب",
+      "descriptionRequired": "الوصف مطلوب",
+      "imageUrlInvalid": "يجب أن تكون الصورة رابطًا صالحًا"
+    },
+    "availability": {
+      "title": "التوافر",
+      "date": "التاريخ",
+      "from": "من",
+      "to": "إلى",
+      "addSlot": "إضافة فترة متاحة",
+      "slotsList": "الفترات المتاحة",
+      "remove": "إزالة"
+    }
+  },
+  "bookings": {
+    "title": "الحجوزات",
+    "showingForVenue": "عرض حجوزات القاعة {{venueId}}.",
+    "selectVenue": "اختر قاعة لمراجعة حجوزاتها."
+  },
+  "common": {
+    "dash": "—",
+    "cancel": "إلغاء",
+    "delete": "حذف"
+  },
+  "modal": {
+    "closeDialog": "إغلاق"
+  },
+  "bookingsPage": {
+    "title": "الحجوزات",
+    "subtitle": "راجع طلبات الحجز على قاعاتك ووافق عليها أو ارفضها.",
+    "loading": "جارٍ تحميل الحجوزات...",
+    "loadError": "تعذر تحميل الحجوزات. حاول مرة أخرى.",
+    "updateError": "تعذر تحديث الحجز. حاول مرة أخرى.",
+    "empty": "لا توجد حجوزات لعرضها.",
+    "filters": {
+      "all": "الكل",
+      "pending": "قيد الانتظار",
+      "approved": "مقبولة",
+      "declined": "مرفوضة"
+    },
+    "status": {
+      "pending": "قيد الانتظار",
+      "approved": "مقبول",
+      "declined": "مرفوض"
+    },
+    "actions": {
+      "approve": "قبول",
+      "decline": "رفض"
+    },
+    "confirmApprove": {
+      "title": "هل تريد قبول الحجز؟",
+      "description": "هل أنت متأكد أنك تريد قبول طلب الحجز هذا؟"
+    },
+    "confirmDecline": {
+      "title": "هل تريد رفض الحجز؟",
+      "description": "هل أنت متأكد أنك تريد رفض طلب الحجز هذا؟"
+    },
+    "card": {
+      "venueTitle": "القاعة #{{id}}",
+      "requestReceived": "تم استلام الطلب • {{date}}",
+      "customerInfo": "بيانات العميل",
+      "customerId": "معرّف العميل: {{id}}",
+      "bookingId": "معرّف الحجز: {{id}}",
+      "eventDetails": "تفاصيل الفعالية",
+      "eventDate": "تاريخ الفعالية",
+      "timePeriod": "الفترة الزمنية",
+      "bookingReference": "مرجع الحجز"
+    }
+  },
+  "overview": {
+    "totalVenues": "إجمالي القاعات",
+    "activeBookings": "الحجوزات النشطة",
+    "revenue": "الإيرادات",
+    "totalClients": "إجمالي العملاء",
+    "BookingsOverview": "نظرة عامة على الحجوزات",
+    "revenueTrend": "اتجاه الإيرادات",
+    "DashboardOverview": "نظرة عامة على لوحة التحكم",
+    "Welcome back! Here's what's happening with your venues and bookings.": "مرحباً بعودتك! إليك ما يحدث مع قاعاتك وحجوزاتك.",
+
+    "Revenue Trend": "اتجاه الإيرادات",
+    "Monthly revenue performance": "أداء الإيرادات الشهرية",
+    "No revenue data available": "لا توجد بيانات إيرادات متاحة",
+    "Jan": "يناير",
+    "Feb": "فبراير",
+    "Mar": "مارس",
+    "Apr": "أبريل",
+    "May": "مايو",
+    "Jun": "يونيو",
+    "Jul": "يوليو",
+    "Aug": "أغسطس",
+    "Sep": "سبتمبر",
+    "Oct": "أكتوبر",
+    "Nov": "نوفمبر",
+    "Dec": "ديسمبر",
+    "Revenue": "الإيرادات",
+    "No booking data available": "لا توجد بيانات حجوزات متاحة",
+    "Bookings": "الحجوزات",
+    "noDashboardData": "لا توجد بيانات للوحة التحكم",
+    "today": "اليوم",
+    "yesterday": "أمس",
+    "daysAgo": "أيام مضت",
+    "title": "العنوان",
+    "description": " الوصف ",
+    "viewAll": "عرض الجميع",
+    "unknownClient": "عميل غير معروف",
+    "bookingFor": "لـ",
+    "unknownVenue": "مكان غير معروف",
+    "guests": "الضيوف",
+    "persons": "شخص",
+    "status": {
+      "pending": "قيد الانتظار",
+      "confirmed": "مؤكد",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    },
+    "showMore": "عرض المزيد",
+    "more": "أخرى",
+    "noActivity": "لا توجد أنشطة حديثة",
+    "recentActivity": "النشاط الأخير",
+    "Number of Bookings": "عدد الحجوزات",
+    "Monthly booking statistics": "إحصائيات الحجوزات الشهرية",
+    "Unknown": "غير معروف"
+  }
+}

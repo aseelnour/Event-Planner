@@ -1,0 +1,245 @@
+{
+  "app": {
+    "title": "Client",
+    "subtitle": "Event planner client portal"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "es": "Español",
+    "ar": "Arabic"
+  },
+  "auth": {
+    "loginTitle": "Client Login",
+    "registerTitle": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "fullName": "Full name",
+    "phone": "Phone number",
+    "login": "Login",
+    "logout": "Logout",
+    "loading": "Loading...",
+    "invalidLogin": "Invalid login",
+    "register": "Create an account",
+    "noAccount": "No account?",
+    "haveAccount": "Already have an account?",
+    "submitRegister": "Submit registration",
+    "registerFailed": "Registration failed",
+    "passwordMismatch": "Passwords do not match",
+    "registerSuccess": "Registration submitted. You can sign in once your account is approved."
+  },
+  "layout": {
+    "portalSubtitle": "Client Portal",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "messages": "Messages",
+    "account": "Account",
+    "overview": "Overview"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}",
+    "description": "Your dashboard will grow here as features are added.",
+    "fallbackName": "there"
+  },
+  "manageMessages": {
+    "title": "Messages",
+    "subtitle": "View and reply to your customer conversations",
+    "conversations": "Conversations",
+    "loading": "Loading messages...",
+    "loadError": "Unable to load messages.",
+    "sessionLoading": "Session still loading. Try again.",
+    "emptyThreads": "No conversations yet.",
+    "selectThread": "Select a conversation to start messaging.",
+    "noMessages": "No messages yet.",
+    "typePlaceholder": "Type your message...",
+    "send": "Send",
+    "unknownCustomer": "Unknown Customer"
+  },
+  "manageVenues": {
+    "title": "Manage Venues",
+    "subtitle": "Create and manage your venue listings",
+    "addNewVenue": "Add New Venue",
+    "editVenue": "Edit Venue",
+    "editDescription": "Update the venue details below.",
+    "createDescription": "Add the details your customers need to understand the space.",
+    "sessionLoading": "Your client session is still loading. Please try again in a moment.",
+    "loading": "Loading venues...",
+    "loadError": "Unable to load venues. Check that the API is running and the route is available.",
+    "emptyTitle": "No venues yet",
+    "emptyDescription": "Add your first venue to start accepting event bookings.",
+    "confirmDelete": "Delete {{title}}?",
+    "imageUnavailable": "Image unavailable",
+    "notAvailable": "N/A",
+    "bookings": "Bookings",
+    "edit": "Edit",
+    "deleteVenue": "Delete {{title}}",
+    "venuePreview": "Venue preview",
+    "dropImage": "Drop an image here or browse",
+    "imageUploadHint": "The current API accepts image URLs, so dropped files are used as a local preview.",
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "creating": "Creating...",
+    "saveVenue": "Save Venue",
+    "createVenue": "Create Venue",
+    "status": {
+      "active": "active",
+      "inactive": "inactive"
+    },
+    "fields": {
+      "venueName": "Venue Name",
+      "location": "Location",
+      "capacity": "Capacity",
+      "price": "Price",
+      "pricePerDay": "Price per Day",
+      "description": "Description",
+      "imageUpload": "Image Upload",
+      "imageUrl": "Image URL"
+    },
+    "placeholders": {
+      "venueName": "Grand Ballroom",
+      "location": "Downtown Manhattan, NY",
+      "capacity": "500",
+      "price": "5000",
+      "description": "Describe the space, amenities, and event fit.",
+      "imageUrl": "https://example.com/venue.jpg"
+    },
+    "validation": {
+      "titleRequired": "Title is required",
+      "locationRequired": "Location is required",
+      "capacityRequired": "Capacity is required",
+      "capacityPositive": "Capacity must be a positive whole number",
+      "priceRequired": "Price is required",
+      "descriptionRequired": "Description is required",
+      "imageUrlInvalid": "Image must be a valid URL"
+    },
+    "availability": {
+      "title": "Availability",
+      "day": "Day",
+      "date": "Date",
+      "selectDay": "Select a day",
+      "from": "From",
+      "to": "To",
+      "addSlot": "Add availability slot",
+      "slotsList": "Availability slots",
+      "remove": "Remove",
+      "days": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    }
+  },
+  "bookings": {
+    "title": "Bookings",
+    "showingForVenue": "Showing bookings for venue {{venueId}}.",
+    "selectVenue": "Select a venue to review its bookings."
+  },
+  "common": {
+    "dash": "—",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "modal": {
+    "closeDialog": "Close Dialog"
+  },
+  "bookingsPage": {
+    "title": "Bookings",
+    "subtitle": "Review requests for your venues and approve or decline them.",
+    "loading": "Loading bookings...",
+    "loadError": "Failed to load bookings. Please try again.",
+    "updateError": "Could not update the booking. Please try again.",
+    "empty": "No bookings to show.",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "approved": "Approved",
+      "declined": "Declined"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "declined": "Declined"
+    },
+    "actions": {
+      "approve": "Approve",
+      "decline": "Decline"
+    },
+    "confirmApprove": {
+      "title": "Approve booking?",
+      "description": "Are you sure you want to approve this booking request?"
+    },
+    "confirmDecline": {
+      "title": "Decline booking?",
+      "description": "Are you sure you want to decline this booking request?"
+    },
+    "card": {
+      "venueTitle": "Venue #{{id}}",
+      "requestReceived": "Request received • {{date}}",
+      "customerInfo": "Customer info",
+      "customerId": "Customer ID: {{id}}",
+      "bookingId": "Booking ID: {{id}}",
+      "eventDetails": "Event details",
+      "eventDate": "Event date",
+      "timePeriod": "Time period",
+      "bookingReference": "Booking reference"
+    }
+  },
+  "overview": {
+    "totalVenues": "Total Venues",
+    "activeBookings": "Active Bookings",
+    "revenue": "Revenue",
+    "totalClients": "Total Clients",
+    "recentActivity": "Recent Activity",
+    "BookingsOverview": "Bookings Overview",
+    "Monthly booking statistics": "Monthly booking statistics",
+    "DashboardOverview": "Dashboard Overview",
+    "Welcome back! Here's what's happening with your venues and bookings.": "Welcome back! Here's what's happening with your venues and bookings.",
+
+    "Revenue Trend": "Revenue Trend",
+    "Monthly revenue performance": "Monthly revenue performance",
+    "No revenue data available": "No revenue data available",
+    "Jan": "Jan",
+    "Feb": "Feb",
+    "Mar": "Mar",
+    "Apr": "Apr",
+    "May": "May",
+    "Jun": "Jun",
+    "Jul": "Jul",
+    "Aug": "Aug",
+    "Sep": "Sep",
+    "Oct": "Oct",
+    "Nov": "Nov",
+    "Dec": "Dec",
+    "Revenue": "Revenue",
+    "No booking data available": "No booking data available",
+    "Bookings": "Bookings",
+    "noDashboardData": "No dashboard data available",
+    "today": "today",
+    "yesterday": "yesterday",
+    "daysAgo": "days ago",
+    "viewAll": "View all",
+    "unknownClient": "Unknown client",
+    "bookingFor": "booking for",
+    "unknownVenue": "Unknown venue",
+    "guests": "Guests",
+    "persons": "persons",
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "showMore": "Show more",
+    "more": "more",
+    "title": "Title",
+    "description": "Description",
+    "noActivity": "No recent activity",
+    "Number of Bookings": "Number of Bookings",
+    "Unknown": "Unknown"
+  }
+}

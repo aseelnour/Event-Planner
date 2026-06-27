@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "Event Planner API - Client System Overview",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Client overview endpoints for dashboard analytics and statistics. Requires client authentication token. Use client-system-local.postman_environment.json."
+  },
+  "item": [
+    {
+      "name": "Get Overview",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{clientToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/client-system/overview",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "client-system", "overview"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Overview response contains required fields', function () {",
+              "    pm.expect(json).to.have.property('cards');",
+              "    pm.expect(json).to.have.property('monthlyBookings');",
+              "    pm.expect(json).to.have.property('revenueChart');",
+              "    pm.expect(json).to.have.property('recentBookings');",
+              "    pm.expect(json).to.have.property('recentMessages');",
+              "});",
+              "",
+              "pm.test('Cards object contains required stats', function () {",
+              "    pm.expect(json.cards).to.have.property('totalVenues');",
+              "    pm.expect(json.cards).to.have.property('activeBookings');",
+              "    pm.expect(json.cards).to.have.property('monthlyRevenue');",
+              "    pm.expect(json.cards).to.have.property('totalClients');",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

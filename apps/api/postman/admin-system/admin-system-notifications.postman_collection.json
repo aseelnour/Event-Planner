@@ -1,0 +1,220 @@
+{
+	"info": {
+		"name": "Event Planner API - Admin System Notifications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"description": "Admin notification CRUD under /api/admin-system/notifications. Use admin-system-local.postman_environment.json. Run Admin Login (admin-system-auth) first to set adminToken."
+	},
+	"item": [
+		{
+			"name": "Get All Notifications",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{adminToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/admin-system/notifications?page=1&limit=20",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "admin-system", "notifications"],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const json = pm.response.json();",
+							"pm.test('Response is an array', function () {",
+							"    pm.expect(json).to.be.an('array');",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Create Notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{adminToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"system\",\n  \"message\": \"A simple admin notification\",\n  \"isRead\": false\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/admin-system/notifications",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "admin-system", "notifications"]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 201', function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"const json = pm.response.json();",
+							"if (json && json._id) {",
+							"    pm.environment.set('notificationId', json._id);",
+							"}",
+							"pm.test('Notification has expected fields', function () {",
+							"    pm.expect(json).to.have.property('_id');",
+							"    pm.expect(json).to.have.property('message');",
+							"    pm.expect(json).to.have.property('type');",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Notification By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{adminToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/admin-system/notifications/{{notificationId}}",
+					"host": ["{{baseUrl}}"],
+					"path": [
+						"api",
+						"admin-system",
+						"notifications",
+						"{{notificationId}}"
+					]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const json = pm.response.json();",
+							"pm.test('Response has notification id', function () {",
+							"    pm.expect(json).to.have.property('_id');",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Update Notification",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{adminToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"message\": \"Updated admin notification message\",\n  \"isRead\": true\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/admin-system/notifications/{{notificationId}}",
+					"host": ["{{baseUrl}}"],
+					"path": [
+						"api",
+						"admin-system",
+						"notifications",
+						"{{notificationId}}"
+					]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Delete Notification (Soft Delete)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{adminToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/admin-system/notifications/{{notificationId}}",
+					"host": ["{{baseUrl}}"],
+					"path": [
+						"api",
+						"admin-system",
+						"notifications",
+						"{{notificationId}}"
+					]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+  "manageVenues": {
+    "availability": {
+      "title": "Disponibilidad",
+      "date": "Fecha",
+      "from": "Desde",
+      "to": "Hasta",
+      "addSlot": "Agregar franja disponible",
+      "slotsList": "Franjas disponibles",
+      "remove": "Eliminar"
+    }
+  }
+}

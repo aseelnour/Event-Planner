@@ -1,0 +1,209 @@
+{
+  "info": {
+    "name": "Event Planner API - Admin System Threads",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Admin thread endpoints under /api/admin-system/threads. Use admin-system-local.postman_environment.json. Run Admin Login first to set adminToken."
+  },
+  "item": [
+    {
+      "name": "Create Thread",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"senderId\": \"{{customerId}}\",\n  \"receiverId\": \"{{clientId}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin-system",
+            "threads"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const json = pm.response.json();",
+              "if (json && (json._id || json.id)) {",
+              "    pm.environment.set('threadId', json._id || json.id);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get All Threads",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin-system",
+            "threads"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Threads by Sender",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads/sender/{{senderId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin-system",
+            "threads",
+            "sender",
+            "{{senderId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Threads by Receiver",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads/receiver/{{receiverId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin-system",
+            "threads",
+            "receiver",
+            "{{receiverId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Thread by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads/{{threadId}}",
+          "host": [
+            "{{baseUrl}}"],
+          "path": [
+            "api",
+            "admin-system",
+            "threads",
+            "{{threadId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Thread",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"receiverId\": \"{{clientId}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads/{{threadId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin-system",
+            "threads",
+            "{{threadId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Thread",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/admin-system/threads/{{threadId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin-system",
+            "threads",
+            "{{threadId}}"
+          ]
+        }
+      }
+    }
+  ]
+}

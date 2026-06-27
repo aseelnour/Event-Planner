@@ -1,0 +1,40 @@
+{
+  "name": "event-planner",
+  "private": true,
+  "scripts": {
+    "dev:api": "pnpm --filter @event-planner/api dev",
+    "dev:admin": "pnpm --filter @event-planner/admin dev",
+    "dev:client": "pnpm --filter @event-planner/client dev",
+    "dev:customer": "pnpm --filter @event-planner/customer dev",
+    "build": "pnpm -r run build",
+    "build:api": "pnpm --filter @event-planner/api build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.18.2",
+    "@react-navigation/native": "^7.3.3",
+    "@react-navigation/native-stack": "^7.17.5",
+    "axios": "^1.18.1",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^1.41.3",
+    "dotenv": "^17.4.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "2.1.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "pnpm": "^11.1.2",
+    "react-native-safe-area-context": "^5.8.0",
+    "react-native-screens": "^4.25.2",
+    "zod": "^4.3.6",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/react": "^19.2.17",
+    "@types/react-native": "^0.72.8",
+    "cors": "^2.8.6"
+  }
+}

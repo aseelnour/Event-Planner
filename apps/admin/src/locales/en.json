@@ -1,0 +1,293 @@
+{
+  "app": {
+    "title": "Admin",
+    "subtitle": "Vite + React + TypeScript + Tailwind"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "nav": {
+    "brand": "Eventat",
+    "portalSubtitle": "Admin Portal",
+    "items": {
+      "analytics": "Analytics",
+      "users": "Users",
+      "clients": "Clients",
+      "customers": "Customers",
+      "listings": "Listings",
+      "bookings": "Bookings",
+      "reports": "Reports",
+      "messages": "Messages"
+    },
+    "reports.page": {
+      "title": "Reports & Issues",
+      "subtitle": "Monitor and resolve platform issues",
+      "pending": "Pending",
+      "reviewing": "Reviewing",
+      "resolved": "Resolved",
+      "highPriority": "High Priority"
+    }
+  },
+  "report-item": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "priority": "Priority"
+  },
+  "header": {
+    "adminDisplayName": "Admin User",
+    "adminEmail": "admin@eventat.com",
+    "logout": "Logout"
+  },
+  "modal": {
+    "closeDialog": "Close dialog"
+  },
+  "common": {
+    "unknown": "Unknown",
+    "loading": "Loading…",
+    "notAvailable": "N/A",
+    "dash": "—"
+  },
+  "login": {
+    "title": "Admin Login",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "invalidCredentials": "Invalid login",
+    "submit": "Log in",
+    "loading": "Loading…"
+  },
+  "pages": {
+    "analytics": {
+      "title": "Analytics Dasboard",
+      "subtitle": "Platform-wide metrics and insights",
+      "stats": {
+        "totalUsers": "Total Users",
+        "activeVenues": "Active Venues",
+        "totalBookings": "Total Bookings",
+        "revenue": "Revenue"
+      },
+      "charts": {
+        "bookingTrends": "Booking Trends",
+        "revenueGrowth": "Revenue Growth",
+        "venueDistribution": "Venue Distribution by Location",
+        "userRegistration": "User Registration Trends"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun"
+      },
+      "venues": {
+        "newYork": "New York",
+        "losAngeles": "Los Angeles",
+        "chicago": "Chicago",
+        "miami": "Miami"
+      },
+      "weeks": {
+        "week1": "Week 1",
+        "week2": "Week 2",
+        "week3": "Week 3",
+        "week4": "Week 4"
+      },
+      "chartLabels": {
+        "users": "users",
+        "venues": "venues"
+      }
+    }
+  },
+  "messagesPage": {
+    "searchPlaceholder": "Search conversations…",
+    "loading": "Loading…",
+    "noConversations": "No conversations found",
+    "noMessagesYet": "No messages yet",
+    "selectConversation": "Select a conversation to view messages",
+    "online": "Online",
+    "offline": "Offline",
+    "loadingMessages": "Loading messages…",
+    "typeYourMessage": "Type your message…",
+    "send": "Send"
+  },
+  "clientsPage": {
+    "badges": {
+      "waiting": "Pending review",
+      "approved": "Approved",
+      "banned": "Banned"
+    },
+    "statusModal": {
+      "title": "Update client status",
+      "subtitle": "Pick how this client can use the platform. Changes apply immediately.",
+      "clientLabel": "Client",
+      "pickLabel": "Status",
+      "unknownUser": "Unknown client",
+      "cancel": "Cancel",
+      "apply": "Apply changes",
+      "saving": "Saving",
+      "updateFailed": "Could not save changes. Try again.",
+      "inlineFailed": "Could not update status.",
+      "options": {
+        "waitingTitle": "Waiting approval",
+        "waitingDesc": "No portal login until an admin approves this account.",
+        "approvedTitle": "Approved",
+        "approvedDesc": "Active venue owner — full access to the client portal.",
+        "bannedTitle": "Banned",
+        "bannedDesc": "Account suspended — login and actions are blocked."
+      }
+    }
+  },
+  "usersPage": {
+    "title": "User management",
+    "subtitle": "Monitor and manage platform users",
+    "searchPlaceholder": "Search users by name or email…",
+    "filter": {
+      "allRoles": "All roles",
+      "allStatus": "All statuses",
+      "roleClient": "Client",
+      "roleCustomer": "Customer",
+      "approved": "Approved",
+      "waitingApproval": "Waiting approval",
+      "banned": "Banned"
+    },
+    "table": {
+      "user": "User",
+      "role": "Role",
+      "status": "Status",
+      "phone": "Phone",
+      "joinDate": "Join date",
+      "actions": "Actions"
+    },
+    "loading": "Loading users…",
+    "loadError": "Failed to load users.",
+    "empty": "No users match the current filters.",
+    "status": {
+      "approved": "Approved",
+      "waitingApproval": "Waiting approval",
+      "banned": "Banned",
+      "none": "—"
+    },
+    "role": {
+      "client": "Client",
+      "customer": "Customer"
+    },
+    "aria": {
+      "view": "View",
+      "edit": "Edit"
+    }
+  },
+  "clientsTablePage": {
+    "title": "Clients",
+    "subtitle": "Manage venue owners and clients on the platform",
+    "searchPlaceholder": "Search clients by name or email…",
+    "filter": {
+      "allStatus": "All statuses",
+      "approved": "Approved",
+      "waitingApproval": "Waiting approval",
+      "banned": "Banned"
+    },
+    "table": {
+      "client": "Client",
+      "phone": "Phone",
+      "status": "Status",
+      "joinDate": "Join date"
+    },
+    "loading": "Loading clients…",
+    "loadError": "Failed to load clients.",
+    "empty": "No clients match the current filters."
+  },
+  "customersPage": {
+    "title": "Customers",
+    "subtitle": "Manage end users who book venues on the platform",
+    "searchPlaceholder": "Search customers by name or email…",
+    "filter": {
+      "allGenders": "All genders",
+      "male": "Male",
+      "female": "Female"
+    },
+    "table": {
+      "customer": "Customer",
+      "phone": "Phone",
+      "gender": "Gender",
+      "dob": "Date of birth",
+      "city": "City",
+      "joinDate": "Join date"
+    },
+    "loading": "Loading customers…",
+    "loadError": "Failed to load customers.",
+    "empty": "No customers match the current filters.",
+    "genderValue": {
+      "male": "Male",
+      "female": "Female"
+    }
+  },
+  "listingsPage": {
+    "title": "Listings",
+    "subtitle": "Venue listings overview",
+    "emptyForClient": "No venues found for this person."
+  },
+  "reportsPage": {
+    "title": "Reports",
+    "subtitle": "Reports and exports"
+  },
+  "bookingsPage": {
+    "title": "Booking requests",
+    "subtitle": "Review and manage incoming booking requests",
+    "loading": "Loading bookings…",
+    "loadError": "Failed to load bookings.",
+    "card": {
+      "venueTitle": "Venue {{id}}",
+      "requestReceived": "Request received on {{date}}",
+      "clientInfo": "Client information",
+      "eventDetails": "Event details",
+      "clientId": "Client ID {{id}}",
+      "customerId": "Customer ID {{id}}",
+      "bookingId": "Booking ID {{id}}",
+      "eventDate": "Event date",
+      "timePeriod": "Time period",
+      "bookingReference": "Booking reference",
+      "totalAmount": "Total amount"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "declined": "Declined",
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled",
+      "completed": "Completed",
+      "other": "{{status}}"
+    },
+    "actions": {
+      "approve": "Approve",
+      "decline": "Decline"
+    },
+    "updateError": "Failed to update booking status.",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "approved": "Approved",
+      "declined": "Declined"
+    },
+    "empty": "No booking requests found."
+  },
+  "venuesPage": {
+    "title": "Venues",
+    "subtitle": "Review and manage venue listings",
+    "loading": "Loading venues…",
+    "empty": "No venues found.",
+    "loadError": "Failed to load venues.",
+    "card": {
+      "noImage": "No image",
+      "clientId": "Client ID {{id}}",
+      "statusArchived": "Archived",
+      "statusActive": "Active",
+      "price": "Price",
+      "availability": "Availability",
+      "discounts": "Discounts",
+      "extras": "Extras",
+      "viewDetails": "View details"
+    }
+  }
+}

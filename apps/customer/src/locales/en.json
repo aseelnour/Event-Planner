@@ -1,0 +1,144 @@
+{
+  "app": {
+    "title": "Customer",
+    "subtitle": "Vite + React + TypeScript + Tailwind"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
+    "login": "Login",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "Trusted by 1,200+ event planners",
+    "title": "Book Perfect Venues for Your Events",
+    "subtitle": "Discover and book amazing event spaces with ease. From intimate gatherings to grand celebrations, find the perfect venue in minutes.",
+    "startBooking": "Start Booking Now",
+    "listVenue": "List Your Venue",
+    "stats": {
+      "events": "Successful Events",
+      "venues": "Premium Venues",
+      "rating": "Average Rating"
+    }
+  },
+  "features": {
+    "title": "Everything You Need",
+    "subtitle": "Powerful features to make event planning effortless",
+    "smartSearch": {
+      "title": "Smart Search",
+      "description": "Filter venues by location, capacity, price, and amenities to find exactly what you need."
+    },
+    "realTime": {
+      "title": "Real-Time Availability",
+      "description": "Check venue availability instantly and book your preferred dates in real-time."
+    },
+    "securePayments": {
+      "title": "Secure Payments",
+      "description": "Safe and secure payment processing with buyer protection for peace of mind."
+    },
+    "directComm": {
+      "title": "Direct Communication",
+      "description": "Chat directly with venue owners to discuss your event requirements."
+    },
+    "reviews": {
+      "title": "Verified Reviews",
+      "description": "Read authentic reviews from past clients to make informed decisions."
+    },
+    "premiumVenues": {
+      "title": "Premium Venues",
+      "description": "Access to exclusive and high-quality event spaces."
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Book your perfect venue in three simple steps",
+    "step1": {
+      "title": "Search & Discover",
+      "description": "Browse through hundreds of verified venues. Use filters to find spaces that match your event requirements."
+    },
+    "step2": {
+      "title": "Connect & Confirm",
+      "description": "Send booking requests, chat with owners, and finalize all the details for your perfect event."
+    },
+    "step3": {
+      "title": "Host Your Event",
+      "description": "Complete secure payment and get ready to host an unforgettable event at your chosen venue."
+    }
+  },
+  "venueOwner": {
+    "title": "Own a Venue?",
+    "subtitle": "Join our platform and connect with thousands of event planners looking for the perfect space. Maximize your bookings and grow your business.",
+    "visibility": {
+      "title": "Increase Visibility",
+      "description": "Reach a wider audience and get more booking requests"
+    },
+    "bookings": {
+      "title": "Manage Bookings",
+      "description": "Easy-to-use dashboard to handle all your reservations"
+    },
+    "analytics": {
+      "title": "Analytics & Insights",
+      "description": "Track performance and optimize your listing"
+    },
+    "listVenue": "List Your Venue",
+    "stats": {
+      "bookingIncrease": "Average booking increase",
+      "activePlanners": "Active event planners",
+      "venuesOnPlatform": "Venues on platform",
+      "ownerSatisfaction": "Owner satisfaction"
+    }
+  },
+  "cta": {
+    "title": "Ready to Plan Your Next Event?",
+    "subtitle": "Join thousands of satisfied clients who found their perfect venue on Eventat",
+    "getStarted": "Get Started Free",
+    "signIn": "Sign In"
+  },
+  "footer": {
+    "tagline": "Making event planning effortless, one venue at a time.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "features": "Features",
+    "pricing": "Pricing",
+    "howItWorks": "How It Works",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "rights": "© 2026 Eventat. All rights reserved."
+  },
+  "pricing": {
+  "title": "Simple, Transparent Pricing",
+  "subtitle": "Choose the plan that works best for you",
+  "popular": "Most Popular",
+  "getStarted": "Get Started",
+  "contactUs": "Contact Us",
+  "basic": {
+    "title": "Basic",
+    "price": "Free",
+    "period": "Forever",
+    "features": ["Up to 5 bookings/month", "Basic search filters", "Email support"]
+  },
+  "pro": {
+    "title": "Pro",
+    "price": "$29",
+    "period": "per month",
+    "features": ["Unlimited bookings", "Advanced filters", "Priority support", "Analytics dashboard"]
+  },
+  "enterprise": {
+    "title": "Enterprise",
+    "price": "Custom",
+    "period": "Contact us",
+    "features": ["Everything in Pro", "Dedicated manager", "Custom integrations", "SLA guarantee", "White-label option"]
+  }
+}
+}

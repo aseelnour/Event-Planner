@@ -1,0 +1,366 @@
+{
+  "info": {
+    "name": "Event Planner API - Client System Manage Venues",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Client venue management endpoints for creating, updating, and deleting venues. Requires client authentication token. Use client-system-local.postman_environment.json."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "clientToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "clientId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "venueId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Venue",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{clientToken}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"clientId\": \"{{clientId}}\",\n  \"title\": \"Grand Ballroom\",\n  \"description\": \"Elegant ballroom perfect for weddings and corporate events\",\n  \"location\": \"123 Main Street, New York, NY\",\n  \"capacity\": 500,\n  \"price\": \"5000\",\n  \"images\": [\n    \"https://example.com/ballroom-1.jpg\",\n    \"https://example.com/ballroom-2.jpg\"\n  ],\n  \"extras\": \"Catering available, DJ service, Parking\",\n  \"availability\": [\n    {\n      \"from\": \"09:00\",\n      \"to\": \"23:00\"\n    },\n    {\n      \"from\": \"10:00\",\n      \"to\": \"22:00\"\n    }\n  ],\n  \"discounts\": \"10% off for weekend bookings\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/client-system/client/manage-venues",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "client-system", "client", "manage-venues"]
+        },
+        "description": "Creates a new venue for the authenticated client. Requires valid clientId and all required fields."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Response contains venue data', function () {",
+              "    pm.expect(json).to.have.property('_id');",
+              "    pm.expect(json).to.have.property('clientId');",
+              "    pm.expect(json).to.have.property('title');",
+              "    pm.expect(json).to.have.property('location');",
+              "    pm.expect(json).to.have.property('capacity');",
+              "    pm.expect(json).to.have.property('price');",
+              "});",
+              "",
+              "if (json && json._id) {",
+              "    pm.environment.set('venueId', json._id);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "response": [
+        {
+          "name": "201 — Venue created successfully",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{clientToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientId\": \"674a1b2c3d4e5f6789abcdef\",\n  \"title\": \"Grand Ballroom\",\n  \"description\": \"Elegant ballroom perfect for weddings and corporate events\",\n  \"location\": \"123 Main Street, New York, NY\",\n  \"capacity\": 500,\n  \"price\": \"5000\",\n  \"images\": [\"https://example.com/ballroom-1.jpg\"],\n  \"extras\": \"Catering available, DJ service\",\n  \"availability\": [{\"from\": \"09:00\", \"to\": \"23:00\"}],\n  \"discounts\": \"10% off for weekends\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/client-system/client/manage-venues",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "client-system", "client", "manage-venues"]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"_id\": \"674b2c3d4e5f6789abcdef01\",\n  \"clientId\": \"674a1b2c3d4e5f6789abcdef\",\n  \"title\": \"Grand Ballroom\",\n  \"description\": \"Elegant ballroom perfect for weddings and corporate events\",\n  \"location\": \"123 Main Street, New York, NY\",\n  \"capacity\": 500,\n  \"price\": \"5000\",\n  \"images\": [\"https://example.com/ballroom-1.jpg\"],\n  \"extras\": \"Catering available, DJ service\",\n  \"availability\": [{\"from\": \"09:00\", \"to\": \"23:00\"}],\n  \"discounts\": \"10% off for weekends\",\n  \"isDeleted\": false\n}"
+        },
+        {
+          "name": "400 — Validation failed",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{clientToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Venue without required fields\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/client-system/client/manage-venues",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "client-system", "client", "manage-venues"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"Validation failed\",\n  \"details\": [\"Location is required\", \"Capacity must be greater than 0\"]\n}"
+        },
+        {
+          "name": "401 — Unauthorized",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer invalid-token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientId\": \"674a1b2c3d4e5f6789abcdef\",\n  \"title\": \"Grand Ballroom\",\n  \"description\": \"Elegant ballroom\",\n  \"location\": \"123 Main Street\",\n  \"capacity\": 500,\n  \"price\": \"5000\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/client-system/client/manage-venues",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "client-system", "client", "manage-venues"]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": \"Unauthorized\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Venues",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{clientToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/client-system/client/manage-venues",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "client-system", "client", "manage-venues"]
+        },
+        "description": "Retrieves all venues managed by the authenticated client."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Response is an array', function () {",
+              "    pm.expect(json).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Venue by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{clientToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/client-system/client/manage-venues/{{venueId}}",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "client-system",
+            "client",
+            "manage-venues",
+            "{{venueId}}"
+          ]
+        },
+        "description": "Retrieves a specific venue by ID."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Response contains venue data', function () {",
+              "    pm.expect(json).to.have.property('_id');",
+              "    pm.expect(json).to.have.property('title');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Update Venue",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{clientToken}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Grand Ballroom - Updated\",\n  \"capacity\": 600,\n  \"price\": \"5500\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/client-system/client/manage-venues/{{venueId}}",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "client-system",
+            "client",
+            "manage-venues",
+            "{{venueId}}"
+          ]
+        },
+        "description": "Updates an existing venue. Only provided fields are updated."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Response contains updated venue data', function () {",
+              "    pm.expect(json).to.have.property('_id');",
+              "    pm.expect(json.title).to.include('Updated');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Delete Venue",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{clientToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/client-system/client/manage-venues/{{venueId}}",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "client-system",
+            "client",
+            "manage-venues",
+            "{{venueId}}"
+          ]
+        },
+        "description": "Deletes a venue (soft delete)."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Response confirms deletion', function () {",
+              "    pm.expect(json).to.have.property('message');",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

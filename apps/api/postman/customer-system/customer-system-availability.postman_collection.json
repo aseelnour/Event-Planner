@@ -1,0 +1,234 @@
+{
+  "info": {
+    "name": "Event Planner API - Customer System Availability",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Customer venue availability checking endpoints. Use customer-system-local.postman_environment.json for environment variables."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "customerToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "venueId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Check Venue Availability",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"venueId\": \"{{venueId}}\",\n  \"date\": \"2026-07-15\",\n  \"from\": \"18:00\",\n  \"to\": \"23:00\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/customer-system/customer/venues/check-availability",
+          "host": ["{{baseUrl}}"],
+          "path": [
+            "api",
+            "customer-system",
+            "customer",
+            "venues",
+            "check-availability"
+          ]
+        },
+        "description": "Checks if a venue is available for the specified date and time range. Returns availability status and reason if not available."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test('Response contains availability status', function () {",
+              "    pm.expect(json).to.have.property('available');",
+              "    pm.expect(json.available).to.be.a('boolean');",
+              "});",
+              "",
+              "pm.test('If not available, reason is provided', function () {",
+              "    if (!json.available) {",
+              "        pm.expect(json).to.have.property('reason');",
+              "        pm.expect(json.reason).to.be.a('string');",
+              "    }",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": [
+        {
+          "name": "200 — Available",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"venueId\": \"674b2c3d4e5f6789abcdef01\",\n  \"date\": \"2026-07-15\",\n  \"from\": \"18:00\",\n  \"to\": \"23:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer-system/customer/venues/check-availability",
+              "host": ["{{baseUrl}}"],
+              "path": [
+                "api",
+                "customer-system",
+                "customer",
+                "venues",
+                "check-availability"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"available\": true\n}"
+        },
+        {
+          "name": "200 — Not available (venue unavailable)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"venueId\": \"674b2c3d4e5f6789abcdef01\",\n  \"date\": \"2026-07-15\",\n  \"from\": \"06:00\",\n  \"to\": \"08:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer-system/customer/venues/check-availability",
+              "host": ["{{baseUrl}}"],
+              "path": [
+                "api",
+                "customer-system",
+                "customer",
+                "venues",
+                "check-availability"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"available\": false,\n  \"reason\": \"Not in venue availability\"\n}"
+        },
+        {
+          "name": "200 — Not available (already booked)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"venueId\": \"674b2c3d4e5f6789abcdef01\",\n  \"date\": \"2026-06-20\",\n  \"from\": \"19:00\",\n  \"to\": \"22:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer-system/customer/venues/check-availability",
+              "host": ["{{baseUrl}}"],
+              "path": [
+                "api",
+                "customer-system",
+                "customer",
+                "venues",
+                "check-availability"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"available\": false,\n  \"reason\": \"Already booked\"\n}"
+        },
+        {
+          "name": "404 — Venue not found",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"venueId\": \"674b2c3d4e5f6789abcdef99\",\n  \"date\": \"2026-07-15\",\n  \"from\": \"18:00\",\n  \"to\": \"23:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer-system/customer/venues/check-availability",
+              "host": ["{{baseUrl}}"],
+              "path": [
+                "api",
+                "customer-system",
+                "customer",
+                "venues",
+                "check-availability"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"available\": false,\n  \"reason\": \"Venue not found\"\n}"
+        }
+      ]
+    }
+  ]
+}

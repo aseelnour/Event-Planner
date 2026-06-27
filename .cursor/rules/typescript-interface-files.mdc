@@ -1,0 +1,17 @@
+---
+description: TypeScript interface & enum naming in apps/api
+globs: apps/api/**/*.ts
+alwaysApply: false
+---
+
+# Interface modules (`apps/api`)
+
+- Put interface-only modules in files named **`kebab-case.interface.ts`** (e.g. `notification.interface.ts`, `notification-document.interface.ts`).
+- **Do not** use `INotification.ts`, `inotification.ts`, or other `I`-prefixed filenames for the file itself; the exported symbol may still be `INotification` if desired.
+- One primary interface (or a small, closely related set) per file is fine; split when files grow or domains diverge.
+- Import these without a `.js` extension to match existing `apps/api` convention.
+
+# Enums (`apps/api`)
+
+- Name exported enums with an **`Enum` suffix**, not `Type` (e.g. **`ActorEnum`**, **`NotificationEnum`** — not `ActorType` / `NotificationType`).
+- Keep enum definitions in **`enums/models/`** (or a similar clear folder) with one concern per file when practical (e.g. `actor.ts`, `notification.ts`).

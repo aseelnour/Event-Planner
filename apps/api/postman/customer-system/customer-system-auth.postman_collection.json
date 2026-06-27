@@ -1,0 +1,264 @@
+{
+	"info": {
+		"name": "Event Planner API - Customer System Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"description": "Customer auth: /api/customer-system/customer.\n\n**Variables (collection defaults — override via environment):**\n- `baseUrl` — API root (e.g. http://localhost:3000)\n- `customerFullName`, `customerRegisterEmail`, `customerRegisterPassword` — register body\n- `customerEmail`, `customerPassword` — login\n- `customerToken` — set automatically after successful login\n\nImport `customer-system-local.postman_environment.json` for example values."
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "customerFullName",
+			"value": "Ahmad Ali",
+			"type": "string"
+		},
+		{
+			"key": "customerRegisterEmail",
+			"value": "customer.new@example.com",
+			"type": "string"
+		},
+		{
+			"key": "customerRegisterPassword",
+			"value": "Password@123",
+			"type": "string"
+		},
+		{
+			"key": "customerEmail",
+			"value": "customer@example.com",
+			"type": "string"
+		},
+		{
+			"key": "customerPassword",
+			"value": "Password@123",
+			"type": "string"
+		},
+		{
+			"key": "customerToken",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Customer Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"fullName\": \"{{customerFullName}}\",\n  \"email\": \"{{customerRegisterEmail}}\",\n  \"password\": \"{{customerRegisterPassword}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/customer-system/customer/register",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "customer-system", "customer", "register"]
+				},
+				"description": "Creates a customer account. Password rules: min 8 characters, at least one uppercase letter, at least one symbol."
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 201', function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"const json = pm.response.json();",
+							"pm.test('Response has customer', function () {",
+							"    pm.expect(json.customer).to.be.an('object');",
+							"    pm.expect(json.customer._id).to.be.a('string');",
+							"});",
+							"",
+							"if (json && json.customer && json.customer._id) {",
+							"    pm.environment.set('customerId', json.customer._id);",
+							"}"
+						]
+					}
+				}
+			],
+			"response": [
+				{
+					"name": "201 — Registration successful",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"Ahmad Ali\",\n  \"email\": \"customer.new@example.com\",\n  \"password\": \"Password@123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-system/customer/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-system", "customer", "register"]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"message\": \"Registration successful\",\n  \"customer\": {\n    \"_id\": \"674a1b2c3d4e5f6789abcdef\",\n    \"email\": \"customer.new@example.com\",\n    \"fullName\": \"Ahmad Ali\"\n  }\n}"
+				},
+				{
+					"name": "409 — Email already registered",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"Ahmad Ali\",\n  \"email\": \"existing@example.com\",\n  \"password\": \"Password@123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-system/customer/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-system", "customer", "register"]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"error\": \"Email already registered\"\n}"
+				},
+				{
+					"name": "400 — Validation failed (weak password)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"Ahmad Ali\",\n  \"email\": \"bad@example.com\",\n  \"password\": \"short\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/customer-system/customer/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "customer-system", "customer", "register"]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"error\": \"Validation failed\",\n  \"details\": {\n    \"password\": [\n      \"Password must be at least 8 characters long\",\n      \"Password must contain at least one uppercase letter\",\n      \"Password must contain at least one symbol\"\n    ]\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Customer Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"{{customerEmail}}\",\n  \"password\": \"{{customerPassword}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/customer-system/customer/login",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "customer-system", "customer", "login"]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const json = pm.response.json();",
+							"if (json && json.token) {",
+							"    pm.environment.set('customerToken', json.token);",
+							"}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Customer Verify",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{customerToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/customer-system/customer/verify",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "customer-system", "customer", "verify"]
+				}
+			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const json = pm.response.json();",
+							"pm.test('Verify response is valid', function () {",
+							"    pm.expect(json.valid).to.eql(true);",
+							"    pm.expect(json.customer).to.be.an('object');",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	]
+}
